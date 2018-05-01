@@ -6,11 +6,11 @@ import gov.va.ea.api.data.ProjectDAO;
 import gov.va.ea.api.data.StakeholderDAO;
 import gov.va.ea.api.data.SystemDAO;
 import gov.va.ea.api.data.SystemOfSystemDAO;
-import gov.va.ea.api.data.VASIAttributeDAO;
+import gov.va.ea.api.data.VASISystemAttributeDAO;
 import gov.va.ea.api.model.BusinessFunction;
 import gov.va.ea.api.model.Organization;
 import gov.va.ea.api.model.SystemOfSystem;
-import gov.va.ea.api.model.VASIAttribute;
+import gov.va.ea.api.model.VASISystemAttribute;
 import gov.va.ea.api.model.VASystem;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class ServiceController
   @Autowired
   BusinessFunctionDAO bfDao;
   @Autowired
-  VASIAttributeDAO attributeDao;
+  VASISystemAttributeDAO vasisystemattributeDao;
   
   @RequestMapping(method={org.springframework.web.bind.annotation.RequestMethod.GET}, value={"/systems/{vasiId}"})
   public VASystem getSystem(@PathVariable String vasiId)
@@ -63,9 +63,10 @@ public class ServiceController
     return this.bfDao.getBfs(hierarchyNumber);
   }
   
-  @RequestMapping(method={org.springframework.web.bind.annotation.RequestMethod.GET}, value={"/attributes/{vasiId}"})
-  List<VASIAttribute> getVASIAttributes(@PathVariable String vasiId)
+  @RequestMapping(method={org.springframework.web.bind.annotation.RequestMethod.GET}, value={"/vasiSystemAttributes"})
+  List<VASISystemAttribute> getVASISystemAttributes()
   {
-    return this.attributeDao.getVASIAttributes(vasiId);
+    return this.vasisystemattributeDao.getVASISystemAttributes();
+    
   }
 }
