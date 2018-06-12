@@ -8,4 +8,5 @@ public abstract class BaseDAO
 {
   protected static ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
   protected static JdbcTemplate jdbcTemplate = (JdbcTemplate)ctx.getBean("jdbcTemplate");
+  //Imp New Method for data population
 }
