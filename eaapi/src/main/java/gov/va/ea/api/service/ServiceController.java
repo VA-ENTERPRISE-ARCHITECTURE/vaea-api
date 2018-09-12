@@ -77,13 +77,13 @@ public class ServiceController {
     }
 
     @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
-	    "/SystemProjects" })
+	    "/systemProjects" })
     List<SystemProject> getSystemProjects() {
 	return this.systemProjectDao.getSystemProjects();
 
     }
 
-    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = { "/Projects" })
+    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = { "/projects" })
     List<Project> getProjects() {
 	return this.projectDAO.getProjects();
 
