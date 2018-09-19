@@ -18,6 +18,7 @@ import gov.va.ea.api.data.VASISystemAttributeDAO;
 import gov.va.ea.api.model.BusinessFunction;
 import gov.va.ea.api.model.Organization;
 import gov.va.ea.api.model.Project;
+import gov.va.ea.api.model.SystemBusinessFunction;
 import gov.va.ea.api.model.SystemOfSystem;
 import gov.va.ea.api.model.SystemProject;
 import gov.va.ea.api.model.VASISystemAttribute;
@@ -42,6 +43,11 @@ public class ServiceController {
     @Autowired
     SystemProjectDAO systemProjectDao;
 
+    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = { "/systems" })
+    public List<VASystem> getSystems() {
+	return sysDao.getActiveSystems();
+    }
+
     @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
 	    "/systems/{vasiId}" })
     public VASystem getSystem(@PathVariable String vasiId) {
@@ -63,10 +69,30 @@ public class ServiceController {
 	return this.sosDao.getSoSs(vasiId);
     }
 
+    /*
+     * @RequestMapping(method = {
+     * org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
+     * "/brm/{hierarchyNumber}" }) public List<BusinessFunction>
+     * getBFs(@PathVariable String hierarchyNumber) { return
+     * this.bfDao.getBfs(hierarchyNumber); }
+     */
+
     @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
-	    "/brm/{hierarchyNumber}" })
-    public List<BusinessFunction> getBFs(@PathVariable String hierarchyNumber) {
-	return this.bfDao.getBfs(hierarchyNumber);
+	    "/systembusinessfunctions" })
+    public List<SystemBusinessFunction> getSystemBusinessFunctions() {
+	return sysDao.getSystemBusinessFunctions();
+    }
+
+    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
+	    "/businessfunctions" })
+    public List<BusinessFunction> getBusinessFunctions() {
+	return this.bfDao.getBfs("1054");
+    }
+
+    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
+	    "/businessfunctions/{hierarchyNumber}" })
+    public List<BusinessFunction> getSubBusinessFunctions(@PathVariable String hierarchyNumber) {
+	return this.bfDao.getBfDetails(hierarchyNumber);
     }
 
     @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
