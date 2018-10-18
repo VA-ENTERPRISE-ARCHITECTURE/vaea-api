@@ -7,8 +7,8 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 
 <bean id="propLoc" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-<!-- <property name="locations" value="application.properties"/> -->
-<property name="locations" value="file:///C:/Development/docs/application.properties"/>
+<property name="locations" value="file:///${catalina.base}/conf/vear-application.properties"/>
+<!-- <property name="locations" value="file:///C:/Development/docs/application.properties"/> -->
 </bean>
 
  <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
