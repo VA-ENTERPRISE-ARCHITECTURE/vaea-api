@@ -5,10 +5,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import gov.va.ea.api.data.BaseDAO;
 import gov.va.ea.api.model.vear.SystemComponent;
 
+@Repository("SystemComponentDAO.Vear")
 public class SystemComponentDAO extends BaseDAO {
 
     public List<SystemComponent> getSystemComponents() {

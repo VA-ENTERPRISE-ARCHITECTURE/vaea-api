@@ -15,7 +15,7 @@ public class SystemSecurity {
     private String scConfidentiality;
     private String scAvailability;
     private String scIntegrity;
-    private String description;
+    private String securityDescription;
     private String environment;
 
     public BigDecimal getSystemId() {
@@ -106,12 +106,12 @@ public class SystemSecurity {
 	this.scIntegrity = scIntegrity;
     }
 
-    public String getDescription() {
-	return description;
+    public String getSecurityDescription() {
+	return securityDescription;
     }
 
-    public void setDescription(String description) {
-	this.description = description;
+    public void setSecurityDescription(String securityDescription) {
+	this.securityDescription = securityDescription;
     }
 
     public String getEnvironment() {

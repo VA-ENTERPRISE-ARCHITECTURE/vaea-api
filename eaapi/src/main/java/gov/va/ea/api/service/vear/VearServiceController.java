@@ -46,14 +46,19 @@ public class VearServiceController {
     @Qualifier("BusinessFunctionDAO.Vear")
     BusinessFunctionDAO bfDao;
     @Autowired
+    @Qualifier("SystemComponentDAO.Vear")
     SystemComponentDAO systemComponentDAO;
     @Autowired
+    @Qualifier("SystemInvestmentDAO.Vear")
     SystemInvestmentDAO systemInvestmentDAO;
     @Autowired
+    @Qualifier("SystemLocationDAO.Vear")
     SystemLocationDAO systemLocationDAO;
     @Autowired
+    @Qualifier("SystemSecurityDAO.Vear")
     SystemSecurityDAO systemSecurityDAO;
     @Autowired
+    @Qualifier("SystemTechnologyDAO.Vear")
     SystemTechnologyDAO systemTechnologyDAO;
 
     @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = { "/vear/systems" })

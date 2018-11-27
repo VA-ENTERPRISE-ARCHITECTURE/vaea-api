@@ -5,10 +5,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import gov.va.ea.api.data.BaseDAO;
 import gov.va.ea.api.model.vear.SystemInvestment;
 
+@Repository("SystemInvestmentDAO.Vear")
 public class SystemInvestmentDAO extends BaseDAO {
 
     public List<SystemInvestment> getSystemInvestments() {
@@ -29,13 +31,13 @@ public class SystemInvestmentDAO extends BaseDAO {
 	}
     }
 
-    String system_investment_qurey = "select master.system_id, master.system_name, master.system_acronym, lo2.description \"system_status\"\r\n"
-	    + "     , master.budgetcodes, master.budgetlines\r\n"
-	    + "from ( select syst.system_Id, syst.system_Acronym, syst.system_Name, syst.system_status_pick_list\r\n"
-	    + "    , Sf.Budgetlines, Sf.Budgetcodes from Ee.Element_Attr_C56 syst\r\n" + "    Left Outer Join (\r\n"
-	    + "    Select system_funding.system_id As system_funding_id \r\n"
-	    + "    , Rtrim(Xmlagg(Xmlelement(E, F.Name, ', ').Extract('//text()') Order By F.Name).Getclobval(), ', ') As Budgetlines\r\n"
-	    + "    , Rtrim(Xmlagg(Xmlelement(E, F.budget_code, ', ').Extract('//text()') Order By F.budget_code).Getclobval(), ', ') As Budgetcodes\r\n"
+    String system_investment_qurey = "select master.system_id, master.system_name, master.system_acronym,  master.system_description\r\n"
+	    + ", lo2.description \"system_status\", master.budgetcodes, master.budgetlines\r\n"
+	    + "from ( select syst.system_Id, syst.system_Acronym, syst.system_Name, syst.system_description\r\n"
+	    + ", syst.system_status_pick_list, Sf.Budgetlines, Sf.Budgetcodes from Ee.Element_Attr_C56 syst\r\n"
+	    + "    Left Outer Join (\r\n" + "    Select system_funding.system_id As system_funding_id \r\n"
+	    + "    , Rtrim(Xmlagg(Xmlelement(E, F.Name, ', ').Extract('//text()') Order By F.Name).Getclobval(), ', ') As budgetlines\r\n"
+	    + "    , Rtrim(Xmlagg(Xmlelement(E, F.budget_code, ', ').Extract('//text()') Order By F.budget_code).Getclobval(), ', ') As budgetcodes\r\n"
 	    + "    From Ee.Element_Attr_C62 System_Funding\r\n"
 	    + "    Left Outer Join Ee.Element_Attr_C45 F On F.Element_Id = System_Funding.Budget_Code\r\n"
 	    + "    Group By System_Id)Sf On syst.system_Id = Sf.System_Funding_Id)master\r\n"
