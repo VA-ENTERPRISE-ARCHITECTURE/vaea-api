@@ -10,12 +10,22 @@ import org.springframework.web.bind.annotation.RestController;
 import gov.va.ea.api.data.vear.BusinessFunctionDAO;
 import gov.va.ea.api.data.vear.ProjectDAO;
 import gov.va.ea.api.data.vear.StakeholderDAO;
+import gov.va.ea.api.data.vear.SystemComponentDAO;
 import gov.va.ea.api.data.vear.SystemDAO;
+import gov.va.ea.api.data.vear.SystemInvestmentDAO;
+import gov.va.ea.api.data.vear.SystemLocationDAO;
 import gov.va.ea.api.data.vear.SystemOfSystemDAO;
+import gov.va.ea.api.data.vear.SystemSecurityDAO;
+import gov.va.ea.api.data.vear.SystemTechnologyDAO;
 import gov.va.ea.api.model.vear.BusinessFunction;
 import gov.va.ea.api.model.vear.Project;
 import gov.va.ea.api.model.vear.Stakeholder;
+import gov.va.ea.api.model.vear.SystemComponent;
+import gov.va.ea.api.model.vear.SystemInvestment;
+import gov.va.ea.api.model.vear.SystemLocation;
 import gov.va.ea.api.model.vear.SystemOfSystem;
+import gov.va.ea.api.model.vear.SystemSecurity;
+import gov.va.ea.api.model.vear.SystemTechnology;
 import gov.va.ea.api.model.vear.VASystem;
 
 @RestController
@@ -35,6 +45,16 @@ public class VearServiceController {
     @Autowired
     @Qualifier("BusinessFunctionDAO.Vear")
     BusinessFunctionDAO bfDao;
+    @Autowired
+    SystemComponentDAO systemComponentDAO;
+    @Autowired
+    SystemInvestmentDAO systemInvestmentDAO;
+    @Autowired
+    SystemLocationDAO systemLocationDAO;
+    @Autowired
+    SystemSecurityDAO systemSecurityDAO;
+    @Autowired
+    SystemTechnologyDAO systemTechnologyDAO;
 
     @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = { "/vear/systems" })
     public List<VASystem> getSystems() {
@@ -64,5 +84,35 @@ public class VearServiceController {
 	    "/vear/systemstakeholders" })
     public List<Stakeholder> getStakeholders() {
 	return stakeholderDAO.getStakeholders();
+    }
+
+    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
+	    "/vear/systeminvestments" })
+    public List<SystemInvestment> getSystemInvestments() {
+	return systemInvestmentDAO.getSystemInvestments();
+    }
+
+    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
+	    "/vear/systemcomponents" })
+    public List<SystemComponent> getSystemComponents() {
+	return systemComponentDAO.getSystemComponents();
+    }
+
+    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
+	    "/vear/systemlocations" })
+    public List<SystemLocation> getSystemLocations() {
+	return systemLocationDAO.getSystemLocations();
+    }
+
+    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
+	    "/vear/systemsecurity" })
+    public List<SystemSecurity> getSystemSecurity() {
+	return systemSecurityDAO.getSystemSecurity();
+    }
+
+    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = {
+	    "/vear/systemtechnologies" })
+    public List<SystemTechnology> getSystemTechnologies() {
+	return systemTechnologyDAO.getSystemTechnologies();
     }
 }

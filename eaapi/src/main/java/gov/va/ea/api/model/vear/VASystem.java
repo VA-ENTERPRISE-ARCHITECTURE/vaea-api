@@ -4,56 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class VASystem {
-    /*
-     * lo0.description "System Type", lo1.description "Software Type" ,
-     * lo2.description "System Status", lo3.description "Receiving Organization" ,
-     * DECODE(e.EXTERNAL_FACING_CHECK,0,'False',null,'null','True')
-     * "External Facing" , lo4.description "System Criticality", lo5.description
-     * "Sustainment Costs" ,
-     * DECODE(e.SYSTEM_INTERFACE_FLAG,0,'False',null,'null','True')
-     * "System Interfaceable", lo6.description "AMO/ITAM Portfolio" ,
-     * lo7.description "Transformation Status", e.OSEHRA_CATEGORY "OSEHRA Category",
-     * spl2.NAME "Product Line" ,
-     * DECODE(e.HAS_INTERFACES,0,'False',null,'null','True') "Has Interfaces" ,
-     * DECODE(e.NO_DATA_STORE_FLAG,0,'False',null,'null','True')
-     * "No Data Store Flag" , lo8.description "Does this system use/process/",
-     * lo9.description "Planned SSN Removal?" ,
-     * to_char(e.SSN_REMOVAL_DATE,'dd-Mon-yyyy') "SSN Removal Date",
-     * lo10.description "Datastore Status" , spl4.DISASTER_RECOVERY_METHOD
-     * "Disaster Recovery Method", spl4.RECOVERY_TIME_OBJECTIVE
-     * "Recovery Time Objective" , spl4.RECOVERY_POINT_OBJECTIVE
-     * "Recovery Point Objective", spl4.STORAGE_SIZE "Storage Size" ,
-     * spl4.SYSTEM_AVAILABILITY "System Availability", spl4.SENSITIVE_DATA_TYPE
-     * "Sensitive Data Type" , spl4.IAM_SERVICE_TYPE "IAM Service Type",
-     * lo13.description "MVI Compliance Status" ,
-     * DECODE(spl4.VIRTUALIZATION,0,'False',null,'null','True') "Virtualization" ,
-     * DECODE(spl4.MONITORING_SERVICE,0,'False',null,'null','True')
-     * "Monitoring Service" ,
-     * DECODE(spl4.ENTERPRISE_BACKUP,0,'False',null,'null','True')
-     * "Enterprise Backup" ,
-     * DECODE(spl4.SHARED_STORAGE,0,'False',null,'null','True') "Shared Storage" ,
-     * lo11.description "Business Continuity", lo12.description "Sensitive Data" ,
-     * DECODE(spl4.PII_FLAG,0,'False',null,'null','True') "PII Flag" ,
-     * DECODE(spl4.PHI_FLAG,0,'False',null,'null','True') "PHI Flag" ,
-     * to_char(spl4.PRIVACY_OFC_VALIDATION_DT,'dd-Mon-yyyy')
-     * "Privacy OFC Validation Date" , spl4.SYSTEM_AGE "System Age",
-     * spl4.ACTIVE_NUMBER_OF_USERS "Active Number Of Users" , spl4.PROJECTED_GROWTH
-     * "Projected Growth", spl4.NUMBER_OF_AUTHENTICATIONS
-     * "Number Of Authentications" , lo14.description
-     * "Vulnerability Scanning Status", lo15.description "Two Factor Authentication"
-     * , lo17.description "System Replacement Cost", lo18.description
-     * "Security Law Compliance Level" , lo19.description
-     * "Software Hardware Support", spl4.NUMBER_OF_REDUNDANT_SYSTEMS
-     * "Number Of Redundant Systems" , spl4.LAST_MAJOR_ENHANCEMENT_DATE
-     * "Last Major Enhancement Date" , spl4.LAST_SYSTEM_FAILURE_DATE
-     * "Last System Failure Date" , spl4.OVERALL_SCORING_CRITERIA
-     * "Overall Scoring Criteria" , spl4.INITIAL_DEPLOYMENT_DATE
-     * "Initial Deployment Date", spl4.DECOMMISSION_DATE "Decommission Date" ,
-     * spl4.DECOMMISSION_STATUS "Decommission Status", spl4.LSM_ASSESMENT_POC
-     * "LSM Assesment POC" , spl4.COMMENTS "Technical Details Comments",
-     * spl4.LAST_LSM_STATUS_UPDATE "Last LSM Status Update" , lo16.description
-     * "Two Factor Pattern"
-     */
+
     private BigDecimal systemID;
     private String name;
     private String type;
