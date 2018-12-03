@@ -11,6 +11,8 @@ public class SystemSecurity {
     private String systemDescription;
     private String securityId;
     private String ato;
+    private String atoStatus;
+    private String atoDate;
     private String fismaClassification;
     private String scConfidentiality;
     private String scAvailability;
@@ -72,6 +74,22 @@ public class SystemSecurity {
 
     public void setAto(String ato) {
 	this.ato = ato;
+    }
+
+    public String getAtoStatus() {
+	return atoStatus;
+    }
+
+    public void setAtoStatus(String atoStatus) {
+	this.atoStatus = atoStatus;
+    }
+
+    public String getAtoDate() {
+	return atoDate;
+    }
+
+    public void setAtoDate(String atoDate) {
+	this.atoDate = atoDate;
     }
 
     public String getFismaClassification() {
