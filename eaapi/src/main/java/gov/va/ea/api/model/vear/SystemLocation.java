@@ -10,6 +10,8 @@ public class SystemLocation {
     private String systemStatus;
     private String systemDescription;
     private String facilityFullName;
+    private String facilityId;
+    private String dataCenterId;
 
     public BigDecimal getSystemId() {
 	return systemId;
@@ -57,5 +59,21 @@ public class SystemLocation {
 
     public void setFacilityFullName(String facilityFullName) {
 	this.facilityFullName = facilityFullName;
+    }
+
+    public String getFacilityId() {
+	return facilityId;
+    }
+
+    public void setFacilityId(String facilityId) {
+	this.facilityId = facilityId;
+    }
+
+    public String getDataCenterId() {
+	return dataCenterId;
+    }
+
+    public void setDataCenterId(String dataCenterId) {
+	this.dataCenterId = dataCenterId;
     }
 }
