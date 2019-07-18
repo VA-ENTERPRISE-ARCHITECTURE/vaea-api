@@ -12,7 +12,6 @@ public class VASystem {
     private String parentOrganization;
     private String sponsorOrganization;
     private String status;
-    private String itamPortfolio; // "AMO/ITAM Portfolio"
     private String description;
 
     private String systemCriticality;
@@ -24,12 +23,9 @@ public class VASystem {
 
     private String softwareType;
     private String receivingOrganization;
-    private String sustainmentCosts;
-    private String systemInterfaceable;
     private String transformationStatus;
-    private String osehraCategory;
+    private String itPortfolio;
     private String productLine;
-    private String hasInterfaces;
     private String noDataStoreFlag;
 
     private String datastoreStatus;
@@ -40,7 +36,6 @@ public class VASystem {
     private String systemAvailability;
     private String sensitiveDataType;
     private String iamServiceType;
-    private String mviComplianceStatus;
     private String virtualization;
     private String monitoringService;
     private String enterpriseBackup;
@@ -87,22 +82,6 @@ public class VASystem {
 	this.receivingOrganization = receivingOrganization;
     }
 
-    public String getSustainmentCosts() {
-	return sustainmentCosts;
-    }
-
-    public void setSustainmentCosts(String sustainmentCosts) {
-	this.sustainmentCosts = sustainmentCosts;
-    }
-
-    public String getSystemInterfaceable() {
-	return systemInterfaceable;
-    }
-
-    public void setSystemInterfaceable(String systemInterfaceable) {
-	this.systemInterfaceable = systemInterfaceable;
-    }
-
     public String getTransformationStatus() {
 	return transformationStatus;
     }
@@ -111,12 +90,12 @@ public class VASystem {
 	this.transformationStatus = transformationStatus;
     }
 
-    public String getOsehraCategory() {
-	return osehraCategory;
+    public String getItPortfolio() {
+	return itPortfolio;
     }
 
-    public void setOsehraCategory(String osehraCategory) {
-	this.osehraCategory = osehraCategory;
+    public void setItPortfolio(String itPortfolio) {
+	this.itPortfolio = itPortfolio;
     }
 
     public String getProductLine() {
@@ -125,14 +104,6 @@ public class VASystem {
 
     public void setProductLine(String productLine) {
 	this.productLine = productLine;
-    }
-
-    public String getHasInterfaces() {
-	return hasInterfaces;
-    }
-
-    public void setHasInterfaces(String hasInterfaces) {
-	this.hasInterfaces = hasInterfaces;
     }
 
     public String getNoDataStoreFlag() {
@@ -205,14 +176,6 @@ public class VASystem {
 
     public void setIamServiceType(String iamServiceType) {
 	this.iamServiceType = iamServiceType;
-    }
-
-    public String getMviComplianceStatus() {
-	return mviComplianceStatus;
-    }
-
-    public void setMviComplianceStatus(String mviComplianceStatus) {
-	this.mviComplianceStatus = mviComplianceStatus;
     }
 
     public String getVirtualization() {
@@ -550,13 +513,4 @@ public class VASystem {
     public void setVasiURL(String vasiURL) {
 	this.vasiURL = vasiURL;
     }
-
-    public String getItamPortfolio() {
-	return itamPortfolio;
-    }
-
-    public void setItamPortfolio(String itamPortfolio) {
-	this.itamPortfolio = itamPortfolio;
-    }
-
 }

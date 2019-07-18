@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import gov.va.ea.api.data.BusinessFunctionDAO;
+import gov.va.ea.api.data.DataStoreDAO;
 import gov.va.ea.api.data.OrganizationDAO;
 import gov.va.ea.api.data.ProjectDAO;
 import gov.va.ea.api.data.StakeholderDAO;
@@ -16,6 +17,7 @@ import gov.va.ea.api.data.SystemOfSystemDAO;
 import gov.va.ea.api.data.SystemProjectDAO;
 import gov.va.ea.api.data.VASISystemAttributeDAO;
 import gov.va.ea.api.model.BusinessFunction;
+import gov.va.ea.api.model.DataStore;
 import gov.va.ea.api.model.Organization;
 import gov.va.ea.api.model.Project;
 import gov.va.ea.api.model.SystemBusinessFunction;
@@ -42,6 +44,8 @@ public class ServiceController {
     VASISystemAttributeDAO vasisystemattributeDao;
     @Autowired
     SystemProjectDAO systemProjectDao;
+    @Autowired
+    DataStoreDAO dataStoreDAO;
 
     @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = { "/systems" })
     public List<VASystem> getSystems() {
@@ -112,6 +116,12 @@ public class ServiceController {
     @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = { "/projects" })
     List<Project> getProjects() {
 	return this.projectDAO.getProjects();
+
+    }
+
+    @RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.GET }, value = { "/datastores" })
+    List<DataStore> getDataStores() {
+	return this.dataStoreDAO.getDataStores();
 
     }
 }
